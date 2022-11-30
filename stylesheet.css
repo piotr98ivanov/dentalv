@@ -1,8 +1,25 @@
 /* Боди и многие другие элементы имеют стили по умолчанию */
 /* Но мы можем их сбросить вот таким образом */
-body * {
-	padding: 0;
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+ol,
+p,
+pre,
+ul {
 	margin: 0;
+	padding: 0;
 }
 
 /* Тут применяются шрифт на весь сайт */
@@ -13,15 +30,32 @@ body {
 	margin: 0;
 }
 
+/* Обычно у контента сайте есть максимальная ширина. Для этого часто используют такой вот класс с стилями */
+.container {
+	/* width: 100% - потому что я хоче чтобы контент всегда занимал всю ширену браузера */
+	width: 100%;
+
+	/* Но при этом максимальная ширена будет 1200px.
+	   Это позволит зафиксировать шарану на компах,но при это на планшете и мобилке контент займет 100%, это нам и нужно
+	 */
+	max-width: 1160px;
+
+	/* Эта штука делает следующее: */
+	/* по оси Y(0) элемент с этим классом будет иметь 0px отступа */
+	/* а по оси X(auto) конент выравнится по центру, что нам и нужно,так как контент у сайта по центру */
+	margin: 0 auto;
+}
+
 .swiper {
 	width: 100%;
-	height: 300px;
+	height: 800px;
 }
 
 .swiper-slide img {
 	max-width: 100%;
 }
 
+/* Header styles */
 .header{
 	display: block;
 	/* margin - это получается внешние отступы */
@@ -29,44 +63,49 @@ body {
 	padding: 15px;
 	/*padding: auto;*/
 }
-.headernav {
 
+.header-divider {
+	width: 100%;
+	height: 1px;
+	background-color: #eee;
+	margin: 24px 0;
+}
+
+.headernav {
 	display:flex;
-	justify-content: center;
+	justify-content: space-between;
+	align-items: center;
 	border: 0px 0px 2px 0px solid hsla(57, 75%, 70%, 0.243);
 	margin: 0px 0px 0px 0px;
 }
 .logoheader {
-	margin: 30px 30px 0px 0;
-	padding:0px 0px 15px 55px;
+	/*margin: 30px 30px 0px 0;*/
+	/*padding:0px 0px 15px 55px;*/
 }
-hr{
-	color: #000;
-	height: 50px;
-	margin-top: 50px;
-}
+
 .workhours {
 	text-shadow: #f3f3ec;
-	margin-top: 50px;
-	margin-left: 160px;
+	/*margin-top: 50px;*/
+	/*margin-left: 160px;*/
 }
 .callus{
-	margin-top:50px ;
-	margin-right: 50px;
+	/*margin-top:50px ;*/
+	/*margin-right: 50px;*/
 }
 .adress{
-	margin-top: 50px;
-	margin-right: 50px;
+	/*margin-top: 50px;*/
+	/*margin-right: 50px;*/
 }
 .fa-clock{
-	margin-right:5px ;
+	/*margin-right:5px ;*/
 
 }
 .ulmenu {
 	font-weight: 550;
-	margin-bottom: 150px;
+	/*margin-bottom: 150px;*/
 	display: flex;
 	justify-content:start;
+	gap: 32px;
 
 }
 .ulmenu A{
@@ -76,6 +115,17 @@ hr{
 .ulmenu a:hover{
 	border-bottom: 1px dashed rgb(20, 20, 152);
 }
+
+.flags {
+	/* Если элемент с классом .flags находится внутри flex родителя, а родитель .ulmenu имеет свойство display: flex; */
+	/* то мы может только этот элемент выровнить по правой стороне контейнера с помошью margin-left: auto; */
+	/* оно типа говорит что мне все равно какое там выравнивание а родителя, я хочу быть у правого края */
+	margin-left: auto;
+
+	display: flex;
+	align-items: center;
+}
+
 .flag1{
 	margin-left: 400px;
 	height: auto;
@@ -117,7 +167,7 @@ hr{
 	background-color: #f1f1f1;
 	min-width: 160px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: 1;
+	z-index: 2;
 }
 
 /* Links inside the dropdown */
