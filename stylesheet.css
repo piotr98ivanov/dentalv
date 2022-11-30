@@ -1,10 +1,36 @@
+/* Боди и многие другие элементы имеют стили по умолчанию */
+/* Но мы можем их сбросить вот таким образом */
+body * {
+	padding: 0;
+	margin: 0;
+}
+
+/* Тут применяются шрифт на весь сайт */
+html,
+body {
+	font-family: 'Roboto', sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+.swiper {
+	width: 100%;
+	height: 300px;
+}
+
+.swiper-slide img {
+	max-width: 100%;
+}
+
 .header{
 	display: block;
-	margin: 15px;
-	padding: auto;
+	/* margin - это получается внешние отступы */
+	/* В этом случаеш лучше поставить паддинг*/
+	padding: 15px;
+	/*padding: auto;*/
 }
 .headernav {
-   
+
 	display:flex;
 	justify-content: center;
 	border: 0px 0px 2px 0px solid hsla(57, 75%, 70%, 0.243);
@@ -41,7 +67,7 @@ hr{
 	margin-bottom: 150px;
 	display: flex;
 	justify-content:start;
-	
+
 }
 .ulmenu A{
 	text-decoration: none;
@@ -60,7 +86,7 @@ hr{
 	height: auto;
 }
 .fa-brands {
-	
+
 	color: #4c61af;
 	font-weight: 600;
 	margin: 15px;

@@ -1,28 +1,30 @@
-var slideIndex = 1;
-showSlides(slideIndex);
+// Идея хорошая, но не стоит придумывать колесо))) все уже придумали за нас
+// Я всегда использовал для слайдево Swiper плагин. https://swiperjs.com/get-started
+// Он очень гибкий и легко настраиваемый
+// Все параметры слайдера можно глянуть тут https://swiperjs.com/swiper-api#parameters
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+// Ждем чтобы все элементы страницы загрузились и браузер их спарсил
+document.addEventListener('DOMContentLoaded', function () {
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+  // Инициализация слайдера
+  const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    loop: true,
 
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    // scrollbar: {
+    //   el: '.swiper-scrollbar',
+    // },
+  });
+});
